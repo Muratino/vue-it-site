@@ -1,13 +1,9 @@
 <template>
-  <MainBlock />
-  <OfferBlock />
-  <AboutUsBlock />
-  <ContactsBlock />
-  <AchievementBlock />
-  <FormBlock />
-  <Footer />
+  <div class="flex flex-col min-h-screen">
+    <router-view></router-view>
+  </div>
 </template>
-
+<!-- 
 <script>
 import MainTemplate from "./components/layout/MainTemplate.vue";
 import OfferBlock from "./components/OfferBlock.vue";
@@ -32,4 +28,4 @@ export default {
     MainBlock,
   },
 };
-</script>
+</script> -->
