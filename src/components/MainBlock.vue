@@ -24,6 +24,7 @@
         inventore aliquid iure.
       </p>
       <button
+        @click="$emit('scrollToForm')"
         class="transition-colors duration-200 ease-in-out text-white w-full max-w-[350px] py-3.5 mt-16 bg-[#536bb5] text-[24px] font-[500] text-center rounded-3xl cursor-pointer hover:bg-opacity-75 max-[1470px]:text-[20px] max-[1470px]:py-2.5 max-[1470px]:max-w-[250px] max-[400px]:text-[16px] max-[400px]:max-w-[200px]"
       >
         Оставить заявку
@@ -39,15 +40,5 @@ export default {
   components: {
     Header,
   },
-  // data() {
-  //   return {
-  //     count: 0,
-  //   };
-  // },
-  // props: {
-  //   posts: {
-  //     type: Array,
-  //     required: true
-  //   },
 };
 </script>
