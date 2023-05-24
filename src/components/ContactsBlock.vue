@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="contacts"
     class="h-full max-h-[1000px] bg-[url('../assets/img/contacts-bg.png')] bg-cover px-2 py-10 mt-[100px] mb-[50px]"
   >
     <div class="max-w-[1200px] mx-auto">
@@ -128,14 +129,14 @@
   </div>
 </template>
 
-<!-- <script>
+<script>
+import { objOfName } from "../pages/MainPage.vue";
 export default {
-  data() {
-    return {
-      contacts: [
-        {}
-      ]
-    };
+  mounted() {
+    this.$emit("addSomeRef", {
+      ref: this.$refs.contacts,
+      name: objOfName.contacts,
+    });
   },
 };
-</script> -->
+</script>

@@ -24,7 +24,7 @@
         inventore aliquid iure.
       </p>
       <button
-        @click="$emit('scrollToForm')"
+        @click="$emit('scrollToSomeElement', objOfName.form)"
         class="transition-colors duration-200 ease-in-out text-white w-full max-w-[350px] py-3.5 mt-16 bg-[#536bb5] text-[24px] font-[500] text-center rounded-3xl cursor-pointer hover:bg-opacity-75 max-[1470px]:text-[20px] max-[1470px]:py-2.5 max-[1470px]:max-w-[250px] max-[400px]:text-[16px] max-[400px]:max-w-[200px]"
       >
         Оставить заявку
@@ -34,11 +34,23 @@
 </template>
 
 <script>
+import { objOfName } from "../pages/MainPage.vue";
 import Header from "./layout/Header.vue";
 
 export default {
   components: {
     Header,
   },
+  data() {
+    return {
+      objOfName,
+    };
+  },
+
+  // methods: {
+  //   sendRef() {
+  //     this.$on('scrollToSomeElement')
+  //   }
+  // }
 };
 </script>

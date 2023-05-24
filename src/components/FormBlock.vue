@@ -120,6 +120,7 @@
 
 <script>
 import axios from "axios";
+import { objOfName } from "../pages/MainPage.vue";
 export default {
   data() {
     return {
@@ -210,7 +211,7 @@ export default {
     },
   },
   mounted() {
-    this.$emit("addFormRef", this.$refs.form);
+    this.$emit("addSomeRef", { ref: this.$refs.form, name: objOfName.form });
   },
 };
 </script>

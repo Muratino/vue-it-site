@@ -23,12 +23,15 @@
       <!-- </form> -->
     </div>
   </div>
-  <MainBlock @scrollToForm="scrollToForm" />
-  <OfferBlock />
-  <AboutUsBlock @scrollToForm="scrollToForm" />
-  <ContactsBlock />
-  <AchievementBlock />
-  <FormBlock @addFormRef="addFormRef" />
+  <MainBlock @scrollToSomeElement="scrollToSomeElement" />
+  <OfferBlock @addSomeRef="addSomeRef" />
+  <AboutUsBlock
+    @addSomeRef="addSomeRef"
+    @scrollToSomeElement="scrollToSomeElement"
+  />
+  <ContactsBlock @addSomeRef="addSomeRef" />
+  <AchievementBlock @addSomeRef="addSomeRef" />
+  <FormBlock @addSomeRef="addSomeRef" />
   <Footer />
 </template>
 
@@ -42,6 +45,14 @@ import AchievementBlock from "@/components/AchievementBlock.vue";
 import AboutUsBlock from "@/components/AboutUsBlock.vue";
 import Header from "@/components/layout/Header.vue";
 import Footer from "@/components/layout/Footer.vue";
+
+export const objOfName = {
+  form: "form",
+  offers: "offers",
+  aboutUs: "aboutUs",
+  achiv: "achiv",
+  contacts: "contacts",
+};
 
 export default {
   components: {
@@ -57,21 +68,28 @@ export default {
   },
   data() {
     return {
-      formRef: null,
+      someRef: [],
       showPopup: false,
     };
   },
   methods: {
-    scrollToForm() {
-      if (this.formRef) {
-        const formElement = this.formRef;
-        if (formElement) {
-          formElement.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
+    scrollToSomeElement(name) {
+      if (this.someRef !== []) {
+        this.someRef.map((el) => {
+          if (el?.name == name) {
+            const someElement = el?.ref;
+            if (someElement) {
+              someElement.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          }
+        });
       }
     },
-    addFormRef(form) {
-      this.formRef = form;
+    addSomeRef(ref) {
+      this.someRef.push(ref);
     },
     closePopup() {
       this.showPopup = false;
